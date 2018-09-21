@@ -36,7 +36,7 @@ class App extends Component {
       // if num is a dot
       if (e.target.classList.contains('btn-dot')) {
         this.setState(prevState => {
-          if (prevState.output[prevState.output.length + 1] !== "." && prevState.output !== '_') {
+          if (prevState.output[prevState.output.length - 1] !== "." && prevState.output !== '_') {
             return {
               output: prevState.output + num
             }
@@ -64,7 +64,15 @@ class App extends Component {
       // if the action is a backspace
       if (e.target.classList.contains('btn-back')) {
         this.setState(prevState => {
-          if (prevState.output !== '_' && prevState.output !== prevState.sumEval) {
+          if (prevState.output !== '_' && prevState.output !== prevState.sumEval && prevState.output[prevState.output.length - 1] !== '.') {
+            return {
+              output: prevState.output.slice(0, -1) || '_'
+            }
+          } else if (prevState.output[prevState.output.length - 1] === '.' &&  prevState.output.length === 2) {
+            return {
+              output: prevState.output.slice(0, -2) || '_'
+            }
+          } else if (prevState.output[prevState.output.length - 1] === '.') {
             return {
               output: prevState.output.slice(0, -1) || '_'
             }
@@ -73,7 +81,7 @@ class App extends Component {
       }
     }
 
-    console.log(this.state.sumEval)
+
     // if the target is an operator
     if (e.target.dataset['type'] === 'operator' && parseInt(this.state.output, 10)) {
       // if its a +
