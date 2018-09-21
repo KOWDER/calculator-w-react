@@ -73,9 +73,9 @@ class App extends Component {
       }
     }
 
-
+    console.log(this.state.sumEval)
     // if the target is an operator
-    if (e.target.dataset['type'] === 'operator') {
+    if (e.target.dataset['type'] === 'operator' && parseInt(this.state.output, 10)) {
       // if its a +
       if (e.target.classList.contains('btn-plus')) {
         this.setState(prevState => {
