@@ -1,4 +1,14 @@
-You can find a working version of this calculator [here](https://build-mdyvxipjah.now.sh)
+You can find a working version of this calculator [HERE](https://build-mdyvxipjah.now.sh)
+
+
+
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
