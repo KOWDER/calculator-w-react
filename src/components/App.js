@@ -83,13 +83,13 @@ class App extends Component {
 
 
     // if the target is an operator
-    if (e.target.dataset['type'] === 'operator' && parseInt(this.state.output, 10)) {
+    if (e.target.dataset['type'] === 'operator' && parseFloat(this.state.output)) {
       // if its a +
       if (e.target.classList.contains('btn-plus')) {
         this.setState(prevState => {
           return {
             output: '_',
-            sumEval: [...prevState.sumEval, prevState.output, "+"]
+            sumEval: [...prevState.sumEval, parseFloat(prevState.output), "+"]
           }
         })
       }
@@ -98,7 +98,7 @@ class App extends Component {
         this.setState(prevState => {
           return {
             output: '_',
-            sumEval: [...prevState.sumEval, prevState.output, "-"]
+            sumEval: [...prevState.sumEval, parseFloat(prevState.output), "-"]
           }
         })
       }
@@ -107,7 +107,7 @@ class App extends Component {
         this.setState(prevState => {
           return {
             output: '_',
-            sumEval: [...prevState.sumEval, prevState.output, "*"]
+            sumEval: [...prevState.sumEval, parseFloat(prevState.output), "*"]
           }
         })
       }
@@ -116,7 +116,7 @@ class App extends Component {
         this.setState(prevState => {
           return {
             output: '_',
-            sumEval: [...prevState.sumEval, prevState.output, "/"]
+            sumEval: [...prevState.sumEval, parseFloat(prevState.output), "/"]
           }
         })
       }
@@ -124,8 +124,8 @@ class App extends Component {
       if (e.target.classList.contains('btn-equal')) {
         this.setState(prevState => {
           return {
-            output: eval([...prevState.sumEval, prevState.output].join(' ')),
-            sumEval: eval([...prevState.sumEval, prevState.output].join(' '))
+            output: eval([...prevState.sumEval, parseFloat(prevState.output)].join(' ')),
+            sumEval: eval([...prevState.sumEval, parseFloat(prevState.output)].join(' '))
           }
         })
       }

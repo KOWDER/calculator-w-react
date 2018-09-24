@@ -12,13 +12,14 @@
 
 .calc-grid {
   display: grid;
-  height: 600px;
+  height: 500px;
   width: 500px;
   background-color: #333;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: 100px repeat(5, 1fr);
   grid-gap: 1px;
   border: 1px solid #333;
+  overflow-x: hidden;
 }
 
 .calc-output {
@@ -30,7 +31,7 @@
   justify-content: flex-end;
   padding-right: 1em;
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
